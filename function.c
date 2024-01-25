@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
+/*   Updated: 2024/01/25 23:01:36 by syonekur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push(t_node **top, int value)
@@ -9,18 +21,18 @@ void	push(t_node **top, int value)
 		exit(EXIT_FAILURE);
 	new_node->value = value;
 	new_node->next = *top;
-	top = new_mode;
+	top = new_node;
 }
 
 void	swap(t_node **top)
 {
 	t_node	*second;
 
-	if (*top = NULL || (*top)->next == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 		return ;
 	second = (*top)->next;
-	(*top)->next = second_next;
-	second_next->top;
+	(*top)->next = second->next;
+	second->next = *top;
 	*top = second;
 }
 
@@ -29,7 +41,8 @@ void	rotate(t_node **top)
 	t_node	*first;
 	t_node	*current;
 
-	it(*top == NULL || (*top)->next == NULL) return ;
+	if (*top == NULL || (*top)->next == NULL)
+		return ;
 	first = *top;
 	current = *top;
 	while (current->next != NULL)
@@ -41,7 +54,7 @@ void	rotate(t_node **top)
 	first->next = NULL;
 }
 
-voide	reverserotate(t_node **top)
+void	reverserotate(t_node **top)
 {
 	t_node	*current;
 	t_node	*prev;
@@ -58,4 +71,18 @@ voide	reverserotate(t_node **top)
 	prev->next = NULL;
 	current->next = *top;
 	*top = current;
+}
+
+int	pop(t_node **top)
+{
+	int		value;
+	t_node	*tmp;
+
+	if (*top == NULL)
+		return (-1);
+	value = (*top)->value;
+	tmp = *top;
+	*top = (*top)->next;
+	free(tmp);
+	return (value);
 }

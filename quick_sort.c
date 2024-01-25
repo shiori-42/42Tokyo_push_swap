@@ -2,15 +2,15 @@
 
 int	stack_size(t_node *top)
 {
-	int	count;
+	int	cnt;
 
-	coutnt = 0;
+	cnt = 0;
 	while (top)
 	{
-		coutnt++;
+		cnt++;
 		top = top->next;
 	}
-	return (count);
+	return (cnt);
 }
 
 int	choose_pivot(t_node *top, int size)
@@ -25,25 +25,37 @@ int	choose_pivot(t_node *top, int size)
 		top = top->next;
 		i++;
 	}
-	return (top->next)
+	return (top);
 }
 
 void	quicksort(t_stack *a, t_stack *b, int size)
 {
 	int	pivot;
-	int	push_count;
+	int	push_cnt;
 	int	i;
 
 	if (size <= 1)
 		return ;
 	pivot = choose_pivot(a->top, size);
-	push_count = 0;
+	push_cnt = 0;
 	i = 0;
-	while (i<size)
-    {
-        if(a->topvalue<pivot)
-        {
-            push(&b->top,)
-        }
-    }
+	while (i < size)
+	{
+		if (a->top->value < pivot)
+		{
+			push(&b->top, pop(&a->top));
+			push_cnt++;
+		}
+		else
+		{
+			rotate(&a->top);
+		}
+		i++;
+	}
+	quicksort(b, a, push_cnt);
+	quicksort(a, b, size - push_cnt);
+	while (push_cnt--)
+	{
+		push(&a->top, pop(&b->top));
+	}
 }
