@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/26 21:32:29 by syonekur          #+#    #+#             */
+/*   Updated: 2024/01/26 23:23:22 by syonekur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	stack_size(t_node *top)
@@ -13,7 +25,7 @@ int	stack_size(t_node *top)
 	return (cnt);
 }
 
-int	choose_pivot(t_node *top, int size)
+t_node	*choose_pivot(t_node *top, int size)
 {
 	int	i;
 	int	middle;
@@ -28,11 +40,11 @@ int	choose_pivot(t_node *top, int size)
 	return (top);
 }
 
-void	quicksort(t_stack *a, t_stack *b, int size)
+void	quick_sort(t_stack *a, t_stack *b, int size)
 {
-	int	pivot;
-	int	push_cnt;
-	int	i;
+	t_node	*pivot;
+	int		push_cnt;
+	int		i;
 
 	if (size <= 1)
 		return ;
@@ -41,19 +53,21 @@ void	quicksort(t_stack *a, t_stack *b, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (a->top->value < pivot)
+		if (a->top->value < pivot->value)
 		{
 			push(&b->top, pop(&a->top));
+			print_operation("pb");
 			push_cnt++;
 		}
 		else
 		{
 			rotate(&a->top);
+			print_operation("ra");
 		}
 		i++;
 	}
-	quicksort(b, a, push_cnt);
-	quicksort(a, b, size - push_cnt);
+	quick_sort(b, a, push_cnt);
+	quick_sort(a, b, size - push_cnt);
 	while (push_cnt--)
 	{
 		push(&a->top, pop(&b->top));

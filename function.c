@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/01/25 23:01:36 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/01/26 21:43:48 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push(t_node **top, int value)
 		exit(EXIT_FAILURE);
 	new_node->value = value;
 	new_node->next = *top;
-	top = new_node;
+	*top = new_node;
 }
 
 void	swap(t_node **top)
