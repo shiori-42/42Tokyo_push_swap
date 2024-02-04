@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/01/26 21:43:48 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:50:54 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,13 @@ void	reverserotate(t_node **top)
 	*top = current;
 }
 
-int	pop(t_node **top)
+t_node	*pop(t_stack *stack)
 {
-	int		value;
-	t_node	*tmp;
+	t_node	*top_node;
 
-	if (*top == NULL)
-		return (-1);
-	value = (*top)->value;
-	tmp = *top;
-	*top = (*top)->next;
-	free(tmp);
-	return (value);
+	if (stack->top == NULL)
+		return (NULL);
+	top_node = stack->top;
+	stack->top = stack->top->next;
+	return (top_node);
 }

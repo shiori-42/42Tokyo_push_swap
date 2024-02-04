@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:31:47 by syonekur          #+#    #+#             */
-/*   Updated: 2024/01/26 23:28:43 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:32:53 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ size_t	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-int	is_digit(char c)
-{
-	return (c >= '0' && c <= '9');
 }
 
 int	check_overflow_and_underflow(char *s, int sign)
@@ -64,7 +59,7 @@ int	ft_atoi_int(char *str)
 	current = str;
 	while (*str)
 	{
-		if (!is_digit(*str))
+		if (*str <= '0' && *str >= '9')
 			exit_with_error();
 		str++;
 	}
