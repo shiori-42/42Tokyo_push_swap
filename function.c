@@ -6,22 +6,26 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/04 14:50:54 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:45:51 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_node **top, int value)
+void	push(t_stack *from, t_stack *to)
 {
+	int		value;
 	t_node	*new_node;
 
+	if (from->top == NULL)
+		return ;
+	value = pop(from);
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		exit(EXIT_FAILURE);
 	new_node->value = value;
-	new_node->next = *top;
-	*top = new_node;
+	new_node->next = to->top;
+	to->top = new_node;
 }
 
 void	swap(t_node **top)
@@ -73,13 +77,16 @@ void	reverserotate(t_node **top)
 	*top = current;
 }
 
-t_node	*pop(t_stack *stack)
+int	pop(t_stack *stack)
 {
 	t_node	*top_node;
+	int		value;
 
 	if (stack->top == NULL)
-		return (NULL);
+		return (INT_MIN);
 	top_node = stack->top;
-	stack->top = stack->top->next;
-	return (top_node);
+	value = top_node->value;
+	stack->top = top_node->next;
+	free(top_node);
+	return (value);
 }

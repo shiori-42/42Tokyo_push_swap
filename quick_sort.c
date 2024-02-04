@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:32:29 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/04 14:48:19 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:44:25 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,27 @@ int	stack_size(t_node *top)
 	return (cnt);
 }
 
-t_node	*choose_pivot(t_node *top, int size)
+int	find_pivot(t_stack *stack, int size)
 {
-	int	i;
-	int	middle;
+	t_node	*current;
+	int		*values;
+	int		i;
+	int		pivot;
 
+	values = malloc(sizeof(int) * size);
+	if (!values)
+		exit(EXIT_FAILURE);
+	current = stack->top;
 	i = 0;
-	middle = size / 2;
-	while (i < middle)
+	while (i < size)
 	{
-		top = top->next;
+		values[i] = current->value;
+		current = current->next;
 		i++;
 	}
-	return (top);
+	pivot = values[size / 2];
+	free(values);
+	return (pivot);
 }
 
 void	quick_sort(t_stack *a, t_stack *b, int size)
@@ -48,7 +56,7 @@ void	quick_sort(t_stack *a, t_stack *b, int size)
 
 	if (size <= 3)
 	{
-		sort_small_stack(a, size);
+		void	sort_three(a, size);
 		return ;
 	}
 	pivot = find_pivot(a, size);
@@ -66,7 +74,6 @@ void	quick_sort(t_stack *a, t_stack *b, int size)
 	}
 	quick_sort(b, a, push_cnt);
 	quick_sort(a, b, size - push_cnt);
-	maerge_stack(a, b, push_cnt);
 	while (push_cnt--)
 	{
 		push(&a->top, pop(&b->top));
