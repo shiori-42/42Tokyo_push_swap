@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/04 15:46:29 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:14:07 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,14 @@ typedef struct s_stack
 	t_node			*top;
 }					t_stack;
 
-void				quick_sort(t_stack *a, t_stack *b, int size);
 void				exit_with_error(void);
 void				load_stack(t_stack *stack, int argc, char **argv);
-void				push(t_stack *from, t_stack *to);
-int					pop(t_stack *stack);
+void				push(t_node **top, int value);
+int					pop(t_node **top);
 void				rotate(t_node **top);
+void				reverserotate(t_node **top);
 int					ft_atoi_int(char *str);
 size_t				ft_strlen(char *str);
 void				print_operation(char *op);
-void				sort_three(t_stack *a);
 
 #endif

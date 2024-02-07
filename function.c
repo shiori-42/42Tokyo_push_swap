@@ -6,22 +6,23 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/04 15:45:51 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:14:01 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(t_node **top, int value) {
-    t_node *new_node = malloc(sizeof(t_node));
-    if (new_node == NULL) exit(1);
+void	push(t_node **top, int value)
+{
+	t_node	*new_node;
 
-    new_node->value = value;
-    new_node->next = *top;
-    *top = new_node;
+	new_node = malloc(sizeof(t_node));
+	if (new_node == NULL)
+		exit(1);
+	new_node->value = value;
+	new_node->next = *top;
+	*top = new_node;
 }
-
-
 
 void	swap(t_node **top)
 {
@@ -33,7 +34,7 @@ void	swap(t_node **top)
 	(*top)->next = second->next;
 	second->next = *top;
 	*top = second;
-    print_operation("sa");
+	print_operation("sa");
 }
 
 void	rotate(t_node **top)
@@ -52,32 +53,39 @@ void	rotate(t_node **top)
 	*top = first->next;
 	current->next = first;
 	first->next = NULL;
-    print_operation("ra");
+	print_operation("ra");
 }
 
-void reverseRotate(t_node **top) {
-    if (*top == NULL || (*top)->next == NULL) return;
+void	reverserotate(t_node **top)
+{
+	t_node	*current;
+	t_node	*prev;
 
-    t_node *current = *top;
-    t_node *prev = NULL;
-
-    while (current->next != NULL) {
-        prev = current;
-        current = current->next;
-    }
-
-    prev->next = NULL;
-    current->next = *top;
-    *top = current;
-    print_operation("rra");
+	if (*top == NULL || (*top)->next == NULL)
+		return ;
+	current = *top;
+	prev = NULL;
+	while (current->next != NULL)
+	{
+		prev = current;
+		current = current->next;
+	}
+	prev->next = NULL;
+	current->next = *top;
+	*top = current;
+	print_operation("rra");
 }
 
-int pop(t_node **top) {
-    if (*top == NULL) return -1;
+int	pop(t_node **top)
+{
+	int		value;
+	t_node	*tmp;
 
-    int value = (*top)->value;
-    t_node *temp = *top;
-    *top = (*top)->next;
-    free(temp);
-    return value;
+	if (*top == NULL)
+		return (-1);
+	value = (*top)->value;
+	tmp = *top;
+	*top = (*top)->next;
+	free(tmp);
+	return (value);
 }
