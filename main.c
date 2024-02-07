@@ -66,7 +66,6 @@ void load_stack(t_stack *stack, int argc, char **argv)
 int	main(int argc, char *argv[])
 {
 	t_stack	a;
-	t_stack	b;
 
 	if (argc < 2)
 		exit_with_error();
