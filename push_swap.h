@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/07 23:14:07 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:35:34 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,11 @@ void				reverserotate(t_node **top);
 int					ft_atoi_int(char *str);
 size_t				ft_strlen(char *str);
 void				print_operation(char *op);
+size_t				ft_strlen(char *s);
+t_node				*ft_lstnew(int value);
+void				ft_lstadd_front(t_node **lst, t_node *new);
+int					is_sorted(t_node *top);
+void				babblesort_a(t_stack *a);
+void				swap(t_node **top);
 
 #endif

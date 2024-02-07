@@ -1,40 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   libft_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 19:58:33 by syonekur          #+#    #+#             */
-/*   Updated: 2024/01/03 17:06:32 by syonekur         ###   ########.fr       */
+/*   Created: 2024/02/07 23:23:17 by syonekur          #+#    #+#             */
+/*   Updated: 2024/02/07 23:28:09 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"push_swap.h"
 
-char	*ft_strchr( char *s, int c)
+size_t	ft_strlen( char *s)
 {
-	while (*s)
+	size_t	len;
+
+	len = 0;
+	while (s[len])
 	{
-		if (*s == (unsigned char)c)
-		{
-			return ((char *)s);
-		}
-		s++;
+		len++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (NULL);
+	return (len);
 }
 
-// int	main(void)
-// {
-// 	char test[20] = "abcdefghijgk";
-// 	char *p, *q;
+t_node	*ft_lstnew(int value)
+{
+	t_node	*node;
 
-// 	p = ft_strchr(test, 'g');
-// 	q = ft_strchr(test, 0);
-// 	printf("test;g:%s\n", p);
-// 	printf("test0:%s\n", q);
-// 	return (0);
-// }
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->next = NULL;
+	return (node);
+}
+
+void	ft_lstadd_front(t_node **lst, t_node *new)
+{
+	if (!lst || !new)
+		return ;
+	else
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
+

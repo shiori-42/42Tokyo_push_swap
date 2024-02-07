@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 23:04:13 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/07 23:10:04 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:33:54 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	babblesort_a(t_stack *a)
 	}
 	while (is_sorted(a->top))
 	{
-		reverseRotate(&(a->top));
+		reverserotate(&(a->top));
 	}
 }

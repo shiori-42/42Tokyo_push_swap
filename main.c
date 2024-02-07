@@ -6,11 +6,10 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:05 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/07 23:07:33 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/02/07 23:33:04 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
 #include "push_swap.h"
 
 void	print_operation(char *op)
@@ -57,7 +56,7 @@ void	load_stack(t_stack *stack, int argc, char **argv)
 		if (!stack->top)
 			stack->top = new_node;
 		else
-			ft_lstadd_front(&stack, new_node);
+			ft_lstadd_front(&stack->top, new_node);
 		i++;
 	}
 }
@@ -70,6 +69,6 @@ int	main(int argc, char *argv[])
 		exit_with_error();
 	a = (t_stack){NULL};
 	load_stack(&a, argc, argv);
-	babble_sort(&a, argc - 1);
+	babblesort_a(&a);
 	return (0);
 }
