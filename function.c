@@ -12,21 +12,6 @@
 
 #include "push_swap.h"
 
-void	push(t_stack *from, t_stack *to)
-{
-	int		value;
-	t_node	*new_node;
-
-	if (from->top == NULL)
-		return ;
-	value = pop(from);
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		exit(EXIT_FAILURE);
-	new_node->value = value;
-	new_node->next = to->top;
-	to->top = new_node;
-}
 
 void	swap(t_node **top)
 {
@@ -56,37 +41,4 @@ void	rotate(t_node **top)
 	*top = first->next;
 	current->next = first;
 	first->next = NULL;
-}
-
-void	reverserotate(t_node **top)
-{
-	t_node	*current;
-	t_node	*prev;
-
-	if (*top == NULL || (*top)->next == NULL)
-		return ;
-	current = *top;
-	prev = NULL;
-	while (current->next != NULL)
-	{
-		prev = current;
-		current = current->next;
-	}
-	prev->next = NULL;
-	current->next = *top;
-	*top = current;
-}
-
-int	pop(t_stack *stack)
-{
-	t_node	*top_node;
-	int		value;
-
-	if (stack->top == NULL)
-		return (INT_MIN);
-	top_node = stack->top;
-	value = top_node->value;
-	stack->top = top_node->next;
-	free(top_node);
-	return (value);
 }

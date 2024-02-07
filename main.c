@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "/libft/libft.h"
 
 void	print_operation(char *op)
 {
@@ -38,20 +39,29 @@ void	is_duplicate(t_node *top, int num)
 	return ;
 }
 
-void	load_stack(t_stack *stack, int argc, char **argv)
-{
+
+void load_stack(t_stack *stack, int argc, char **argv) 
+{	
 	int	i;
 	int	num;
 
-	i = 1;
-	while (i < argc)
-	{
-		num = ft_atoi_int(argv[i]);
-		is_duplicate(stack->top, num);
-		push(&stack->top, num);
-		i++;
-	}
+	t_node *new_node;
+
+	i=1;
+    while (i < argc) {
+        num = ft_atoi_int(argv[i]);
+		new_node = ft_lstnew(num);
+        if (!new_node) {
+            exit_with_error();
+        }
+    if (!stack->top)
+        stack->top = new_node;
+	else 
+		ft_lstadd_front(&stack,new_node);
+	i++;
+    }
 }
+
 
 int	main(int argc, char *argv[])
 {
@@ -61,8 +71,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		exit_with_error();
 	a = (t_stack){NULL};
-	b = (t_stack){NULL};
 	load_stack(&a, argc, argv);
-	quick_sort(&a, &b, argc - 1);
+	babble_sort(&a,argc - 1);
 	return (0);
 }

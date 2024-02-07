@@ -12,16 +12,6 @@
 
 #include "push_swap.h"
 
-size_t	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 int	check_overflow_and_underflow(char *s, int sign)
 {
 	int	ans;
