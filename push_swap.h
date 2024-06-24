@@ -19,7 +19,7 @@
 
 typedef struct s_node
 {
-	int				value;
+	int				num;
 	struct s_node	*next;
 }					t_node;
 
@@ -28,20 +28,5 @@ typedef struct s_stack
 	t_node			*top;
 }					t_stack;
 
-void				exit_with_error(void);
-void				load_stack(t_stack *stack, int argc, char **argv);
-void				push(t_node **top, int value);
-int					pop(t_node **top);
-void				rotate(t_node **top);
-void				reverserotate(t_node **top);
-int					ft_atoi_int(char *str);
-size_t				ft_strlen(char *str);
-void				print_operation(char *op);
-size_t				ft_strlen(char *s);
-t_node				*ft_lstnew(int value);
-void				ft_lstadd_front(t_node **lst, t_node *new);
-int					is_sorted(t_node *top);
-void				babblesort_a(t_stack *a);
-void				swap(t_node **top);
 
 #endif

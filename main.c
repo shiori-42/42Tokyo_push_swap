@@ -18,57 +18,27 @@ void	print_operation(char *op)
 	write(1, "\n", 1);
 }
 
-void	exit_with_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
-
-void	is_duplicate(t_node *top, int num)
-{
-	t_node	*current;
-
-	current = top;
-	while (current != NULL)
-	{
-		if (current->value == num)
-			exit_with_error();
-		current = current->next;
-	}
-	return ;
-}
-
-void	load_stack(t_stack *stack, int argc, char **argv)
-{
-	int		i;
-	int		num;
-	t_node	*new_node;
-
-	i = 1;
-	while (i < argc)
-	{
-		num = ft_atoi_int(argv[i]);
-		new_node = ft_lstnew(num);
-		if (!new_node)
-		{
-			exit_with_error();
-		}
-		if (!stack->top)
-			stack->top = new_node;
-		else
-			ft_lstadd_front(&stack->top, new_node);
-		i++;
-	}
-}
-
 int	main(int argc, char *argv[])
 {
 	t_stack	a;
+	t_stack	b;
 
-	if (argc < 2)
-		exit_with_error();
 	a = (t_stack){NULL};
-	load_stack(&a, argc, argv);
-	babblesort_a(&a);
-	return (0);
-}
+	if (argc == 1 ||(argc==2 && !argv[1][0]))
+		return (1);
+	else if(argc==2)
+		argv=ft_split(argv[1],' ');
+	load_stack(&a, argv);
+	if(!is_sorted(&a)){
+		if(stack_len(a)==2)
+			sa(&a);
+		else if(stack_len(a)==3)
+			sort_three(&a);
+		else
+			sort_stacks(&a,&b);
+		free_stacks(&a);
+		return (0);
+ }
+
+
+
