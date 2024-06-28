@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/02/07 23:20:29 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/06/28 22:30:57 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	push(t_node **top, int num)
 	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
-	if (new_node == NULL)
-		exit(1);
+	if (!new_node)
+		return ;
 	new_node->num = num;
 	new_node->next = *top;
 	*top = new_node;

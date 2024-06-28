@@ -1,6 +1,18 @@
-# include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/28 20:41:29 by syonekur          #+#    #+#             */
+/*   Updated: 2024/06/28 22:31:20 by syonekur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t	ft_strlen( char *s)
+#include "push_swap.h"
+
+size_t	ft_strlen(char *s)
 {
 	size_t	len;
 
@@ -34,5 +46,3 @@ void	ft_lstadd_front(t_node **lst, t_node *new)
 		*lst = new;
 	}
 }
-
-

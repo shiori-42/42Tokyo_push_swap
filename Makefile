@@ -3,7 +3,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS= function.c main.c utils.c libft_util.c babblesort.c
+SRCS= 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
