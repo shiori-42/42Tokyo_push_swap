@@ -17,11 +17,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_node
-{
-	int				num;
-	struct s_node	*next;
-}					t_node;
+typedef struct s_node {
+    int num;
+    int index;
+    int above_median;
+    int push_cost;
+    struct s_node *next;
+    struct s_node *target_node;
+    int cheapest;
+} t_node;
 
 typedef struct s_stack
 {

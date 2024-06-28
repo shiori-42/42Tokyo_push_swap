@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void	push(t_node **top, int value)
+void	push(t_node **top, int num)
 {
 	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (new_node == NULL)
 		exit(1);
-	new_node->value = value;
+	new_node->num = num;
 	new_node->next = *top;
 	*top = new_node;
 }
@@ -78,14 +78,14 @@ void	reverserotate(t_node **top)
 
 int	pop(t_node **top)
 {
-	int		value;
+	int		num;
 	t_node	*tmp;
 
 	if (*top == NULL)
 		return (-1);
-	value = (*top)->value;
+	num = (*top)->num;
 	tmp = *top;
 	*top = (*top)->next;
 	free(tmp);
-	return (value);
+	return (num);
 }
