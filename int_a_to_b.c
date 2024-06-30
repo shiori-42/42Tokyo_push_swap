@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_a_to_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:26 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/28 20:56:15 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/06/30 14:01:25 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void	set_index(t_node *top)
 	int		median;
 	t_node	*current;
 
-	i = 0;
-	current = top;
-	if (!current)
-		return ;
-	median = stack_len_from_top(top) / 2;
-	while (current)
-	{
-		current->index = i;
-		if (i <= median)
-			current->above_median = 1;
-		else
-			current->above_median = 0;
-		current = current->next;
-		++i;
-	}
-}
+// 	i = 0;
+// 	current = top;
+// 	if (!current)
+// 		return ;
+// 	median = stack_len(top) / 2;
+// 	while (current)
+// 	{
+// 		current->index = i;
+// 		if (i <= median)
+// 			current->above_median = 1;
+// 		else
+// 			current->above_median = 0;
+// 		current = current->next;
+// 		i++;
+// 	}
+// }
 
 void	set_target_a(t_node *a_top, t_node *b_top)
 {
@@ -71,8 +71,8 @@ void	cost_analysis_a(t_node *a_top, t_node *b_top)
 	int		len_b;
 	t_node	*current_a;
 
-	len_a = stack_len_from_top(a_top);
-	len_b = stack_len_from_top(b_top);
+	len_a = stack_len(a_top);
+	len_b = stack_len(b_top);
 	current_a = a_top;
 	while (current_a)
 	{
@@ -96,9 +96,6 @@ void	set_cheapest(t_node *top)
 	cheapest_cost = LONG_MAX;
 	cheapest_node = NULL;
 	current = top;
-	cheapest_cost = LONG_MAX;
-	cheapest_node = NULL;
-	current = top;
 	if (!current)
 		return ;
 	while (current)
@@ -116,8 +113,8 @@ void	set_cheapest(t_node *top)
 
 void	init_nodes_a(t_node *a_top, t_node *b_top)
 {
-	assign_index(a_top);
-	assign_index(b_top);
+	set_index(a_top);
+	set_index(b_top);
 	set_target_a(a_top, b_top);
 	cost_analysis_a(a_top, b_top);
 	set_cheapest(a_top);

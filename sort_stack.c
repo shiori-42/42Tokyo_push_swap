@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:39 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/28 22:34:13 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/06/30 13:49:12 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void	move_a_to_b(t_node *a_top, t_node *b_top)
 	cheapest_node = get_cheapest(a_top);
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 	{
-		rotate_both(&a_top, &b_top, cheapest_node);
+		rotate_both(&a_top, &b_top);
 	}
 	else if (!cheapest_node->above_median
 		&& !cheapest_node->target_node->above_median)
 	{
-		rev_rotate_both(&a_top, &b_top, cheapest_node);
+		rev_rotate_both(&a_top, &b_top);
 	}
 	prep_for_push(&a_top, cheapest_node, 'a');
 	prep_for_push(&b_top, cheapest_node, 'b');
@@ -79,20 +79,20 @@ void	move_b_to_a(t_node *a_top, t_node *b_top)
 	pa(&a_top, &b_top);
 }
 
-void	min_on_top(t_node *top)
-{
-	int min_index;
 
-	min_index = find_min_index(top);
-	while (top->index != min_index)
-	{
-		if (top->index > min_index)
-		{
-			ra(top);
-		}
-		else
-		{
-			rra(top);
-		}
-	}
+void min_on_top(t_node *top)
+{
+    t_node *min_node = find_min(top);
+	set_index(top);
+    while (top != min_node)
+    {
+        if (min_node->above_median)
+            ra(top);
+        else
+            rra(top);
+    }
 }
+
+
+
+get_cheapest実装する

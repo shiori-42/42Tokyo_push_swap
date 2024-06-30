@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:41 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/28 20:47:01 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/06/30 13:57:11 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,3 @@ void	sort_three(t_node *top)
 		sa(top);
 }
 
-t_node	*find_max(t_node *top)
-{
-	t_node	*current;
-	t_node	*max_node;
-
-	current = top;
-	max_node = current;
-	while (current != NULL)
-	{
-		if (current->num > max_node->num)
-		{
-			max_node = current;
-		}
-		current = current->next;
-	}
-	return (max_node);
-}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:46 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/28 22:32:02 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/06/30 13:56:59 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	stack_len(t_node *top)
 
 t_node	*find_max(t_node *top)
 {
-	t_node	*max_node;
 	t_node	*current;
+	t_node	*max_node;
 
 	max_node = top;
 	current = top->next;
@@ -53,23 +53,17 @@ t_node	*find_max(t_node *top)
 	return (max_node);
 }
 
-t_node	*find_min(t_stack *stack)
+t_node	*find_min(t_node *top)
 {
-	long	min;
 	t_node	*current;
 	t_node	*min_node;
 
-	current = stack->top;
-	if (!current)
-	{
-		return (NULL);
-	}
-	min = LONG_MAX;
+	min_node=top;
+	current = top->next;
 	while (current)
 	{
-		if (current->num < min)
+		if (current->num < min_node->num)
 		{
-			min = current->num;
 			min_node = current;
 		}
 		current = current->next;
