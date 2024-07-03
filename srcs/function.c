@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   function.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/03 18:04:44 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 21:10:38 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_node **top, int num,char *op)
+void	push(t_node **top, int num, char *op)
 {
 	t_node	*new_node;
 
@@ -23,28 +23,30 @@ void	push(t_node **top, int num,char *op)
 	new_node->next = *top;
 	*top = new_node;
 	print_operation(op);
-
 }
 
-void pb(t_node **b_top, t_node **a_top)
+void	pb(t_node **b_top, t_node **a_top)
 {
-	int num;
-    if (*a_top)
-    {
-        num = pop(a_top);
-        push(b_top, num, "pb");
-    }
+	int	num;
+
+	if (*a_top)
+	{
+		num = pop(a_top);
+		push(b_top, num, "pb");
+	}
 }
 
-void pa(t_node **a_top, t_node **b_top)
+void	pa(t_node **a_top, t_node **b_top)
 {
-	int num;
-    if (*b_top)
-    {
-        num = pop(b_top);
-        push(a_top, num, "pa");
-    }
+	int	num;
+
+	if (*b_top)
+	{
+		num = pop(b_top);
+		push(a_top, num, "pa");
+	}
 }
+
 int	pop(t_node **top)
 {
 	int		num;
@@ -59,7 +61,7 @@ int	pop(t_node **top)
 	return (num);
 }
 
-void	swap(t_node **top,char* op)
+void	swap(t_node **top, char *op)
 {
 	t_node	*second;
 
@@ -71,4 +73,3 @@ void	swap(t_node **top,char* op)
 	*top = second;
 	print_operation(op);
 }
-

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   function2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:41:26 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/03 20:05:29 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 21:13:23 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_node **top,char* op)
+void	rotate(t_node **top, char *op)
 {
 	t_node	*first;
 	t_node	*current;
@@ -29,10 +29,9 @@ void	rotate(t_node **top,char* op)
 	current->next = first;
 	first->next = NULL;
 	print_operation(op);
-
 }
 
-void	rev_rotate(t_node **top,char* op)
+void	rev_rotate(t_node **top, char *op)
 {
 	t_node	*current;
 	t_node	*prev;
@@ -50,62 +49,43 @@ void	rev_rotate(t_node **top,char* op)
 	current->next = *top;
 	*top = current;
 	print_operation(op);
-
 }
-void rotate_both(t_node **a_top,t_node **b_top)
+
+void	rotate_both(t_node **a_top, t_node **b_top)
 {
-    rotate(a_top,"rr");
-    rotate(b_top,NULL); 
+	rotate(a_top, "rr");
+	rotate(b_top, NULL);
 }
 
-void rev_rotate_both(t_node **a_top,t_node **b_top)
+void	rev_rotate_both(t_node **a_top, t_node **b_top)
 {
-    rev_rotate(a_top,"rrr");
-    rev_rotate(b_top,NULL); 
+	rev_rotate(a_top, "rrr");
+	rev_rotate(b_top, NULL);
 }
 
-// void prep_for_push(t_node **stack_top,t_node *node,char stack_name)
-// {
-//     while(*stack_top!=node)
-//         if(node->above_median){
-//             if(stack_name=='a')
-//                 rotate(stack_top,"ra");
-//              else
-//                 rotate(stack_top,"rb");
-//             } else{
-//                 if(stack_name=='a')
-//                     rev_rotate(stack_top,"rra");
-//                 else
-//                     rev_rotate(stack_top,"rrb");
-//             }
-// }
-
-
-void prep_for_push(t_node **stack_top, t_node *node, char stack_name) {
-    if (!stack_top) {
-        return;
-    }
-    if (!(*stack_top)) {
-        return;
-    }
-    if (!node) {
-        return;
-    }
-
-    while (*stack_top != node) {
-        if (node->above_median) {
-            if (stack_name == 'a') {
-                rotate(stack_top, "ra");
-            } else {
-                rotate(stack_top, "rb");
-            }
-        } else {
-            if (stack_name == 'a') {
-                rev_rotate(stack_top, "rra");
-            } else {
-                rev_rotate(stack_top, "rrb");
-            }
-        }
-    }
+void	prep_for_push(t_node **stack_top, t_node *node, char stack_name)
+{
+	if (!stack_top)
+		return ;
+	if (!(*stack_top))
+		return ;
+	if (!node)
+		return ;
+	while (*stack_top != node)
+	{
+		if (node->above_median)
+		{
+			if (stack_name == 'a')
+				rotate(stack_top, "ra");
+			else
+				rotate(stack_top, "rb");
+		}
+		else
+		{
+			if (stack_name == 'a')
+				rev_rotate(stack_top, "rra");
+			else
+				rev_rotate(stack_top, "rrb");
+		}
+	}
 }
-

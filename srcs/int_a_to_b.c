@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_a_to_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:26 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/03 20:03:36 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 21:18:52 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,30 @@ void	set_target_a(t_node *a_top, t_node *b_top)
 	}
 }
 
-void set_target_b(t_node *a_top, t_node *b_top) {
-    t_node *current_b = b_top;
+void	set_target_b(t_node *a_top, t_node *b_top)
+{
+	t_node	*current_b;
+	t_node	*best_match;
+	t_node	*current_a;
 
-    while (current_b) {
-        t_node *best_match = NULL;
-        t_node *current_a = a_top;
-        while (current_a) {
-            if (!best_match || (current_a->num > current_b->num && (!best_match || current_a->num < best_match->num))) {
-                best_match = current_a;
-            }
-            current_a = current_a->next;
-        }
-        current_b->target_node = best_match;
-        current_b = current_b->next;
-    }
+	current_b = b_top;
+	while (current_b)
+	{
+		best_match = NULL;
+		current_a = a_top;
+		while (current_a)
+		{
+			if (!best_match || (current_a->num > current_b->num && (!best_match
+						|| current_a->num < best_match->num)))
+			{
+				best_match = current_a;
+			}
+			current_a = current_a->next;
+		}
+		current_b->target_node = best_match;
+		current_b = current_b->next;
+	}
 }
-
-
 
 void	cost_analysis_a(t_node *a_top, t_node *b_top)
 {
@@ -129,20 +135,3 @@ void	set_cheapst(t_node *top)
 	if (cheapst_node)
 		cheapst_node->cheapst = 1;
 }
-
-void	init_nodes_a(t_node *a_top, t_node *b_top)
-{
-	set_index(a_top);
-	set_index(b_top);
-	set_target_a(a_top, b_top);
-	cost_analysis_a(a_top, b_top);
-	set_cheapst(a_top);
-}
-
-void	init_nodes_b(t_node *a_top, t_node *b_top) 
-{
-	set_index(a_top);
-	set_index(b_top);
-	set_target_b(a_top, b_top);
-}
-

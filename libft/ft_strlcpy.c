@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 21:49:20 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/02 15:21:05 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 21:06:29 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strlen_s( char *s)
+static size_t	ft_strlen_s(char *s)
 {
 	size_t	len;
 
@@ -26,7 +26,7 @@ static size_t	ft_strlen_s( char *s)
 	return (len);
 }
 
-size_t	ft_strlcpy(char *dest,  char *src, size_t dest_size)
+size_t	ft_strlcpy(char *dest, char *src, size_t dest_size)
 {
 	size_t	src_size;
 	size_t	i;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 21:35:15 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/02 15:21:51 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 21:06:34 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char  *s, char (*f)( int, char))
+char	*ft_strmapi(char *s, char (*f)(int, char))
 {
 	int		i;
 	char	*ptr;
@@ -49,7 +49,7 @@ char	*ft_strmapi(char  *s, char (*f)( int, char))
 // {
 // 	char	*str;
 
-// 	 char s1[] = "aaaaaaaaaaaaaaaa";
+// 		char s1[] = "aaaaaaaaaaaaaaaa";
 // 	(void)argc;
 // 	if (argv[1][0] == '1')
 // 		str = ft_strmapi(s1, &aaaaa);

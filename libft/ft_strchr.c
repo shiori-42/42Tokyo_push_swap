@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:58:33 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/02 15:21:51 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 21:05:56 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr( char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	while (*s)
 	{
-		if (*s == ( char)c)
+		if (*s == (char)c)
 		{
 			return ((char *)s);
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 19:46:49 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/02 15:21:05 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 21:03:57 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static int	cnt_size(int c)
 
 char	*ft_itoa(int c)
 {
-	int			sign;
-	int			size;
-	char		*ptr;
-	 char	*s1;
+	int		sign;
+	int		size;
+	char	*ptr;
+	char	*s1;
 
 	if (c == -2147483648)
 	{
