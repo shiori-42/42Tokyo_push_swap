@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 20:41:41 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/30 13:57:11 by shiori           ###   ########.fr       */
+/*   Created: 2023/09/20 19:51:09 by syonekur          #+#    #+#             */
+/*   Updated: 2024/07/02 15:21:51 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_three(t_node *top)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_node	*biggest_node;
-	t_node	*current;
+	size_t			i;
+	 char	*ptr;
 
-	biggest_node = find_max(top);
-	current = top;
-	if (biggest_node == current)
-		ra(top);
-	else if (current->next == biggest_node)
-		rra(top);
-	if (current->num > current->next->num)
-		sa(top);
+	i = 0;
+	ptr = ( char *)b;
+	while (i < len)
+	{
+		ptr[i] = ( char)c;
+		i++;
+	}
+	return (b);
 }
 
+// int	main(void)
+// {
+// 	char s1[] = "abcdefg";
+
+// 	printf("%s\n", (char *)ft_memset(s1, 'x', (size_t)5));
+// 	return (0);
+// }

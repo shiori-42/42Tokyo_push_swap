@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/28 22:29:24 by syonekur         ###   ########.fr       */
+/*   Created: 2023/09/22 19:11:19 by syonekur          #+#    #+#             */
+/*   Updated: 2023/10/03 11:28:16 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_node
+int	ft_toupper(int c)
 {
-	int				num;
-	int				index;
-	int				above_median;
-	int				push_cost;
-	struct s_node	*next;
-	struct s_node	*target_node;
-	int				cheapest;
-}					t_node;
+	if (c >= 'a' && c <= 'z')
+		c -= ('a' - 'A');
+	return (c);
+}
 
-typedef struct s_stack
-{
-	t_node			*top;
-}					t_stack;
+// int	main(void)
+// {
+// 	int	c;
 
-#endif
+// 	c = ft_toupper('a');
+// 	printf("a_convert_upppercase:%c\n", c);
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:26 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/30 14:01:25 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 20:03:36 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void	set_index(t_node *top)
 	int		median;
 	t_node	*current;
 
-// 	i = 0;
-// 	current = top;
-// 	if (!current)
-// 		return ;
-// 	median = stack_len(top) / 2;
-// 	while (current)
-// 	{
-// 		current->index = i;
-// 		if (i <= median)
-// 			current->above_median = 1;
-// 		else
-// 			current->above_median = 0;
-// 		current = current->next;
-// 		i++;
-// 	}
-// }
+	i = 0;
+	current = top;
+	if (!current)
+		return ;
+	median = stack_len(top) / 2;
+	while (current)
+	{
+		current->index = i;
+		if (i <= median)
+			current->above_median = 1;
+		else
+			current->above_median = 0;
+		current = current->next;
+		i++;
+	}
+}
 
 void	set_target_a(t_node *a_top, t_node *b_top)
 {
@@ -65,6 +65,25 @@ void	set_target_a(t_node *a_top, t_node *b_top)
 	}
 }
 
+void set_target_b(t_node *a_top, t_node *b_top) {
+    t_node *current_b = b_top;
+
+    while (current_b) {
+        t_node *best_match = NULL;
+        t_node *current_a = a_top;
+        while (current_a) {
+            if (!best_match || (current_a->num > current_b->num && (!best_match || current_a->num < best_match->num))) {
+                best_match = current_a;
+            }
+            current_a = current_a->next;
+        }
+        current_b->target_node = best_match;
+        current_b = current_b->next;
+    }
+}
+
+
+
 void	cost_analysis_a(t_node *a_top, t_node *b_top)
 {
 	int		len_a;
@@ -87,28 +106,28 @@ void	cost_analysis_a(t_node *a_top, t_node *b_top)
 	}
 }
 
-void	set_cheapest(t_node *top)
+void	set_cheapst(t_node *top)
 {
-	long	cheapest_cost;
-	t_node	*cheapest_node;
+	long	cheapst_cost;
+	t_node	*cheapst_node;
 	t_node	*current;
 
-	cheapest_cost = LONG_MAX;
-	cheapest_node = NULL;
+	cheapst_cost = LONG_MAX;
+	cheapst_node = NULL;
 	current = top;
 	if (!current)
 		return ;
 	while (current)
 	{
-		if (current->push_cost < cheapest_cost)
+		if (current->push_cost < cheapst_cost)
 		{
-			cheapest_cost = current->push_cost;
-			cheapest_node = current;
+			cheapst_cost = current->push_cost;
+			cheapst_node = current;
 		}
 		current = current->next;
 	}
-	if (cheapest_node)
-		cheapest_node->cheapest = 1;
+	if (cheapst_node)
+		cheapst_node->cheapst = 1;
 }
 
 void	init_nodes_a(t_node *a_top, t_node *b_top)
@@ -117,5 +136,13 @@ void	init_nodes_a(t_node *a_top, t_node *b_top)
 	set_index(b_top);
 	set_target_a(a_top, b_top);
 	cost_analysis_a(a_top, b_top);
-	set_cheapest(a_top);
+	set_cheapst(a_top);
 }
+
+void	init_nodes_b(t_node *a_top, t_node *b_top) 
+{
+	set_index(a_top);
+	set_index(b_top);
+	set_target_b(a_top, b_top);
+}
+

@@ -6,26 +6,26 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:24 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/30 13:57:33 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 19:09:43 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack *top)
+int	is_sorted(t_stack *stack)
 {
 	t_node	*current;
 
-	current = top;
-	if (!current)
-		return (1);
-	while (current)
+	if (!stack || !stack->top)
+        return (1);
+    current = stack->top;
+	while (current->next)
 	{
 		if (current->num > current->next->num)
-			return (1);
+			return (0);
 		current = current->next;
 	}
-	return (0);
+	return (1);
 }
 
 int	is_duplicate(t_node *top, int num)
@@ -33,7 +33,7 @@ int	is_duplicate(t_node *top, int num)
 	t_node	*current;
 
 	current = top;
-	while (current != NULL)
+	while (current)
 	{
 		if (current->num == num)
 			return (1);
@@ -42,40 +42,73 @@ int	is_duplicate(t_node *top, int num)
 	return (0);
 }
 
-void	append_node(t_stack *stack, int n)
+t_node	*create_node(int n)
 {
 	t_node	*new_node;
 
-	if (!stack->top)
-		return ;
-	new_node = ft_lstnew(n);
+	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
-	{
-		free_stack(stack);
-	}
-	if (!stack->top)
-		stack->top = new_node;
-	else
-		ft_lstadd_front(&stack->top, new_node);
+		return (NULL);
+	new_node->num = n;
+	new_node->next = NULL;
+	return (new_node);
+}
+
+void    append_node(t_stack *stack, int n)
+{
+    t_node    *new_node;
+    t_node    *current;
+
+    new_node = create_node(n);
+    if (!new_node)
+    {
+        free_stacks(stack);
+        return;
+    }
+    if (stack->top == NULL)
+    {
+        stack->top = new_node;
+    }
+    else
+    {
+        current = stack->top;
+        while (current->next != NULL)
+        {
+            current = current->next;
+        }
+        current->next = new_node;
+    }
 }
 
 void	load_stack(t_stack *stack, char **argv)
 {
 	int		i;
 	int		num;
-	t_node	*new_node;
 
 	i = 0;
 	while (argv[i])
 	{
-		if (!check_synrax(argv[i]))
-			free_erros(stack);
 		num = ft_atoi(argv[i]);
 		if (is_duplicate(stack->top, num))
-			free_errors(stack);
-		append_node(stack->top, num);
+		{
+			free_stacks(stack);
+			return;
+		}
+		append_node(stack, num);
 		i++;
 	}
 }
 
-// atoi再利用オーバーフローのエラーでEXITする
+int check_syntax(char *arg) { 
+    int i;
+
+    i = 0;
+    if (arg[i] == '-' || arg[i] == '+')
+        i++;
+    while (arg[i]) {
+        if (arg[i] < '0' || arg[i] > '9')
+            return 1;
+        i++;
+    }
+    return 0;
+}

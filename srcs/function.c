@@ -6,13 +6,13 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/30 13:56:47 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/03 18:04:44 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_node **top, int num)
+void	push(t_node **top, int num,char *op)
 {
 	t_node	*new_node;
 
@@ -22,60 +22,29 @@ void	push(t_node **top, int num)
 	new_node->num = num;
 	new_node->next = *top;
 	*top = new_node;
+	print_operation(op);
+
 }
 
-void	swap(t_node **top)
+void pb(t_node **b_top, t_node **a_top)
 {
-	t_node	*second;
-
-	if (*top == NULL || (*top)->next == NULL)
-		return ;
-	second = (*top)->next;
-	(*top)->next = second->next;
-	second->next = *top;
-	*top = second;
-	print_operation("sa");
+	int num;
+    if (*a_top)
+    {
+        num = pop(a_top);
+        push(b_top, num, "pb");
+    }
 }
 
-void	rotate(t_node **top)
+void pa(t_node **a_top, t_node **b_top)
 {
-	t_node	*first;
-	t_node	*current;
-
-	if (*top == NULL || (*top)->next == NULL)
-		return ;
-	first = *top;
-	current = *top;
-	while (current->next != NULL)
-	{
-		current = current->next;
-	}
-	*top = first->next;
-	current->next = first;
-	first->next = NULL;
-	print_operation("ra");
+	int num;
+    if (*b_top)
+    {
+        num = pop(b_top);
+        push(a_top, num, "pa");
+    }
 }
-
-void	reverserotate(t_node **top)
-{
-	t_node	*current;
-	t_node	*prev;
-
-	if (*top == NULL || (*top)->next == NULL)
-		return ;
-	current = *top;
-	prev = NULL;
-	while (current->next != NULL)
-	{
-		prev = current;
-		current = current->next;
-	}
-	prev->next = NULL;
-	current->next = *top;
-	*top = current;
-	print_operation("rra");
-}
-
 int	pop(t_node **top)
 {
 	int		num;
@@ -89,3 +58,17 @@ int	pop(t_node **top)
 	free(tmp);
 	return (num);
 }
+
+void	swap(t_node **top,char* op)
+{
+	t_node	*second;
+
+	if (*top == NULL || (*top)->next == NULL)
+		return ;
+	second = (*top)->next;
+	(*top)->next = second->next;
+	second->next = *top;
+	*top = second;
+	print_operation(op);
+}
+

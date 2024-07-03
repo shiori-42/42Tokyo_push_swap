@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 20:41:29 by syonekur          #+#    #+#             */
-/*   Updated: 2024/06/30 13:57:28 by shiori           ###   ########.fr       */
+/*   Created: 2023/09/23 21:42:41 by syonekur          #+#    #+#             */
+/*   Updated: 2024/07/02 15:21:05 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-size_t	ft_strlen(char *s)
+char	*ft_strdup( char *s1)
 {
-	size_t	len;
+	int		i;
+	char	*ptr;
 
-	len = 0;
-	while (s[len])
-	{
-		len++;
-	}
-	return (len);
-}
-
-t_node	*ft_lstnew(int num)
-{
-	t_node	*node;
-
-	node = malloc(sizeof(t_node));
-	if (!node)
+	ptr = malloc(ft_strlen(s1) + 1);
+	if (!ptr)
 		return (NULL);
-	node->num = num;
-	node->next = NULL;
-	return (node);
+	i = 0;
+	while (s1[i])
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
 
-void	ft_lstadd_front(t_node **lst, t_node *new)
-{
-	if (!lst || !new)
-		return ;
-	else
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-}
+// int	main(void)
+// {
+// 	char	*s2;
+
+// 	s2 = ft_strdup(NULL);
+// 	if (!s2)
+// 	{
+// 		printf("malloc faile");
+// 		return (1);
+// 	}
+// 	printf("Rstult_s2:%s\n", s2);
+// 	free(s2);
+// 	return (0);
+// }
