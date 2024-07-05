@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 20:01:27 by syonekur          #+#    #+#             */
-/*   Updated: 2023/10/07 16:49:39 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/04 21:30:19 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 // 	t_list	*lst;
 // 	t_list	*mapped_lst;
 
-// 	int num1, num2, num3;
-// 	num1 = 5, num2 = 10, num3 = 15;
+// 	int nbr1, nbr2, nbr3;
+// 	nbr1 = 5, nbr2 = 10, nbr3 = 15;
 // 	// Create a linked list: 5 -> 10 -> 15
-// 	lst = ft_lstnew(&num1);
-// 	ft_lstadd_back(&lst, ft_lstnew(&num2));
-// 	ft_lstadd_back(&lst, ft_lstnew(&num3));
+// 	lst = ft_lstnew(&nbr1);
+// 	ft_lstadd_back(&lst, ft_lstnew(&nbr2));
+// 	ft_lstadd_back(&lst, ft_lstnew(&nbr3));
 // 	printf("Original list:\n");
 // 	print_list(lst);
 // 	// Apply ft_lstmap to the list

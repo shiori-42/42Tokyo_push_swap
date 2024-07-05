@@ -1,64 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   function.c                                         :+:      :+:    :+:   */
+/*   cmd_push_pop_swap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/03 21:10:38 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:17:53 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_node **top, int num, char *op)
+void	push(t_node **top, int nbr, char *op)
 {
 	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
-	new_node->num = num;
+	new_node->nbr = nbr;
 	new_node->next = *top;
 	*top = new_node;
 	print_operation(op);
 }
 
-void	pb(t_node **b_top, t_node **a_top)
+void	pb(t_node **b, t_node **a)
 {
-	int	num;
+	int	nbr;
 
-	if (*a_top)
+	if (*a)
 	{
-		num = pop(a_top);
-		push(b_top, num, "pb");
+		nbr = pop(a);
+		push(b, nbr, "pb");
 	}
 }
 
-void	pa(t_node **a_top, t_node **b_top)
+void	pa(t_node **a, t_node **b)
 {
-	int	num;
+	int	nbr;
 
-	if (*b_top)
+	if (*b)
 	{
-		num = pop(b_top);
-		push(a_top, num, "pa");
+		nbr = pop(b);
+		push(a, nbr, "pa");
 	}
 }
 
 int	pop(t_node **top)
 {
-	int		num;
+	int		nbr;
 	t_node	*tmp;
 
 	if (*top == NULL)
 		return (-1);
-	num = (*top)->num;
+	nbr = (*top)->nbr;
 	tmp = *top;
 	*top = (*top)->next;
 	free(tmp);
-	return (num);
+	return (nbr);
 }
 
 void	swap(t_node **top, char *op)

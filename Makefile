@@ -4,8 +4,9 @@ INCLUDES= -I./includes -I./libft/includes
 
 LIBFT=libft/libft.a
 SRCDIR=srcs/
-SRCFILES=main.c sort_stack.c sort_three.c stack_utils.c \
-function.c function2.c init_stack.c int_a_to_b.c 
+SRCFILES=cmd_push_pop_swap.c find_target_a.c sort_stack.c \
+cmd_rotate_rev_rotate.c find_target_b.c sort_three.c \
+create_stack.c main.c stack_utils.c \
 
 SRCS=$(addprefix $(SRCDIR), $(SRCFILES))
 OBJS=$(SRCS:.c=.o)

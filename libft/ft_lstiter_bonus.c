@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 19:43:44 by syonekur          #+#    #+#             */
-/*   Updated: 2023/10/10 19:59:43 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/04 21:30:19 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 // 	t_list	*lst;
 // 	t_list	*tmp;
 
-// 	int num1, num2, num3;
-// 	num1 = 5, num2 = 10, num3 = 15;
+// 	int nbr1, nbr2, nbr3;
+// 	nbr1 = 5, nbr2 = 10, nbr3 = 15;
 // 	// Create a linked list: 5 -> 10 -> 15
-// 	lst = ft_lstnew(&num1);
-// 	lst->next = ft_lstnew(&num2);
-// 	lst->next->next = ft_lstnew(&num3);
+// 	lst = ft_lstnew(&nbr1);
+// 	lst->next = ft_lstnew(&nbr2);
+// 	lst->next->next = ft_lstnew(&nbr3);
 // 	// Apply 'increase' function on each node's content using ft_lstiter
 // 	ft_lstiter(lst, increase);
 // 	// Print the modified content of the list
