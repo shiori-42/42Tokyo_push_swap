@@ -1,4 +1,4 @@
-CC=cc -g -fsanitize=address
+CC=cc
 CFLAGS=-Wall -Wextra -Werror
 INCLUDES= -I./includes -I./libft/includes
 
@@ -6,7 +6,7 @@ LIBFT=libft/libft.a
 SRCDIR=srcs/
 SRCFILES=cmd_push_pop_swap.c find_target_a.c sort_stack.c \
 cmd_rotate_rev_rotate.c find_target_b.c sort_three.c \
-create_stack.c main.c stack_utils.c \
+create_stack.c main.c stack_utils.c stack_utils2.c handle_error.c\
 
 SRCS=$(addprefix $(SRCDIR), $(SRCFILES))
 OBJS=$(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 19:25:48 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/05 14:46:11 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/05 15:44:34 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_atoi( char *str)
 		str++;
 	}
 	ans = check_overflow_nbr(str, sign);
-	return ((int)ans);
+	return (ans);
 }
 
 // int	main(void)
