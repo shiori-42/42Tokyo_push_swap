@@ -16,7 +16,7 @@ PS_SRCS = $(addprefix $(PS_SRCDIR), $(PS_SRCFILES))
 PS_OBJS = $(PS_SRCS:.c=.o)
 
 CK_SRCDIR = srcs/checker/
-CK_SRCFILES = checker_bonus.c get_next_line.c get_next_line_utils.c push_swap.c
+CK_SRCFILES = checker_bonus.c push_swap.c
 CK_SRCS = $(addprefix $(CK_SRCDIR), $(CK_SRCFILES))
 CK_OBJS = $(CK_SRCS:.c=.o)
 
