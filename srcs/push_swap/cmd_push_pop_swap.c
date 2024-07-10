@@ -6,47 +6,29 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/05 15:17:53 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/10 19:13:59 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_node **top, int nbr, char *op)
+void	push(t_node **to, t_node **from, char *op)
 {
+	int	nbr;
 	t_node	*new_node;
 
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return ;
-	new_node->nbr = nbr;
-	new_node->next = *top;
-	*top = new_node;
-	print_operation(op);
-}
-
-void	pb(t_node **b, t_node **a)
-{
-	int	nbr;
-
-	if (*a)
+	if (*from)
 	{
-		nbr = pop(a);
-		push(b, nbr, "pb");
+		nbr = pop(from);
+		new_node = malloc(sizeof(t_node));
+		if (!new_node)
+			return ;
+		new_node->nbr = nbr;
+		new_node->next = *to;
+		*to = new_node;
+		print_operation(op);
 	}
 }
-
-void	pa(t_node **a, t_node **b)
-{
-	int	nbr;
-
-	if (*b)
-	{
-		nbr = pop(b);
-		push(a, nbr, "pa");
-	}
-}
-
 int	pop(t_node **top)
 {
 	int		nbr;

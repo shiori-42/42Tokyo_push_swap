@@ -18,9 +18,9 @@ void	sort_stacks(t_node **a, t_node **b)
 
 	len_a = stack_len((*a));
 	if (len_a-- > 3 && !is_sorted(*a))
-		pb(b, a);
+		push(b, a,"pb");
 	if (len_a-- > 3 && !is_sorted(*a))
-		pb(b, a);
+		push(b, a,"pb");
 	while (len_a-- > 3 && !is_sorted(*a))
 	{
 		init_nodes_a((*a) ,(*b));
@@ -43,24 +43,30 @@ void	move_a_to_b(t_node **a, t_node **b)
 	cheapest_node = get_cheapest(*a);
 	if (!cheapest_node || !cheapest_node->target_node)
 		return ;
-	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
+
+	while((*a)!=cheapest_node && (*b)!=cheapest_node->target_node )
 	{
-		rotate_both(a, b,cheapest_node);
-	}
-	else if (!cheapest_node->above_median
-		&& !cheapest_node->target_node->above_median)
-	{
-		rev_rotate_both(a, b,cheapest_node);
+		if (cheapest_node->above_median && cheapest_node->target_node->above_median)
+		{
+				rotate(a, "rr");
+				rotate(b, NULL);
+		}
+		else if (!cheapest_node->above_median
+			&& !cheapest_node->target_node->above_median)
+		{
+				rev_rotate(a, "rrr");
+				rev_rotate(b, NULL);
+		}
 	}
 	move_to_target(a, cheapest_node, 'a');
 	move_to_target(b, cheapest_node->target_node, 'b');
-	pb(b, a);
+	push(b, a,"pb");
 }
 
 void	move_b_to_a(t_node **a, t_node **b)
 {
 	move_to_target(a, (*b)->target_node, 'a');
-	pa(a, b);
+	push(a,b,"pa");
 }
 
 void	min_on_top(t_node **top)

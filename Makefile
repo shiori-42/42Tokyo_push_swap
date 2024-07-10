@@ -2,7 +2,7 @@ NAME = push_swap
 BONUS_NAME = checker
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./includes -I./libft
 
 LIBFT = libft/libft.a
@@ -16,7 +16,7 @@ PS_SRCS = $(addprefix $(PS_SRCDIR), $(PS_SRCFILES))
 PS_OBJS = $(PS_SRCS:.c=.o)
 
 CK_SRCDIR = srcs/checker/
-CK_SRCFILES = checker_bonus.c push_swap.c
+CK_SRCFILES = checker_bonus.c
 CK_SRCS = $(addprefix $(CK_SRCDIR), $(CK_SRCFILES))
 CK_OBJS = $(CK_SRCS:.c=.o)
 
@@ -25,7 +25,9 @@ all: $(NAME)
 $(NAME): $(PS_OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(PS_OBJS) $(LIBFT) -o $(NAME)
 
-bonus: $(CK_OBJS) $(LIBFT)
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(CK_OBJS) $(PS_OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(CK_OBJS) $(filter-out srcs/push_swap/push_swap.o, $(PS_OBJS)) $(LIBFT) -o $(BONUS_NAME)
 
 $(LIBFT):
