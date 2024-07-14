@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_target_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:26 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/05 15:17:53 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 15:50:16 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	find_target_a(t_node *a, t_node *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr
-				&& current_b->nbr > best_match_index)
+			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
 			{
 				best_match_index = current_b->nbr;
 				target_node = current_b;
@@ -39,6 +38,7 @@ void	find_target_a(t_node *a, t_node *b)
 		a = a->next;
 	}
 }
+
 void	init_nodes_a(t_node *a, t_node *b)
 {
 	set_index(a);
@@ -47,4 +47,3 @@ void	init_nodes_a(t_node *a, t_node *b)
 	calc_cost_for_push_a(a, b);
 	find_cheapest(a);
 }
-

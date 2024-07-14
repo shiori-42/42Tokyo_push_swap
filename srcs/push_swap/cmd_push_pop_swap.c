@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_push_pop_swap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:43:07 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/10 19:13:59 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 15:51:52 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push(t_node **to, t_node **from, char *op)
 {
-	int	nbr;
+	int		nbr;
 	t_node	*new_node;
 
 	if (*from)
@@ -29,6 +29,7 @@ void	push(t_node **to, t_node **from, char *op)
 		print_operation(op);
 	}
 }
+
 int	pop(t_node **top)
 {
 	int		nbr;

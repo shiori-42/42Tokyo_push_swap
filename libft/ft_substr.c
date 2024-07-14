@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 22:22:01 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/03 21:08:40 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 16:04:28 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char *s, int start, size_t len)
 		return (NULL);
 	s_size = ft_strlen(s);
 	if ((size_t)start >= s_size)
-		return (strdup(""));
+		return (ft_strdup(""));
 	sub = (char *)malloc((len + 1) * sizeof(char));
 	if (!sub)
 		return (NULL);

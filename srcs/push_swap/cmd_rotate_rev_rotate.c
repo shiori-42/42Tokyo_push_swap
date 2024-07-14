@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_rotate_rev_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:41:26 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/10 18:53:36 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 15:51:33 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ void	rev_rotate(t_node **top, char *op)
 	*top = current;
 	print_operation(op);
 }
-

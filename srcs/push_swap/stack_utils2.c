@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 19:42:30 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/10 18:20:13 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 16:01:59 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	calc_cost_for_push_a(t_node *a, t_node *b)
 		current_a = current_a->next;
 	}
 }
+
 void	print_operation(char *op)
 {
 	if (!op)
@@ -40,7 +41,8 @@ void	print_operation(char *op)
 	write(1, op, ft_strlen(op));
 	write(1, "\n", 1);
 }
-int  call_load_stack(t_node **a,int argc, char **argv)
+
+int	call_load_stack(t_node **a, int argc, char **argv)
 {
 	char	**splited_argv;
 
@@ -53,6 +55,6 @@ int  call_load_stack(t_node **a,int argc, char **argv)
 		load_stack(a, splited_argv);
 	}
 	else
-		load_stack(a, argv+ 1);
+		load_stack(a, argv + 1);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-/*                     *stack                                                       */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 20:41:39 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/05 14:39:47 by shiori           ###   ########.fr       */
+/*   Created: 2024/07/14 15:46:52 by syonekur          #+#    #+#             */
+/*   Updated: 2024/07/14 15:46:56 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ void	sort_stacks(t_node **a, t_node **b)
 
 	len_a = stack_len((*a));
 	if (len_a-- > 3 && !is_sorted(*a))
-		push(b, a,"pb");
+		push(b, a, "pb");
 	if (len_a-- > 3 && !is_sorted(*a))
-		push(b, a,"pb");
+		push(b, a, "pb");
 	while (len_a-- > 3 && !is_sorted(*a))
 	{
-		init_nodes_a((*a) ,(*b));
-		move_a_to_b(a,b);
+		init_nodes_a((*a), (*b));
+		move_a_to_b(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
-		init_nodes_b((*a) ,(*b));
-		move_b_to_a(a,b);
+		init_nodes_b((*a), (*b));
+		move_b_to_a(a, b);
 	}
 	set_index(*a);
 	min_on_top(a);
@@ -43,30 +43,30 @@ void	move_a_to_b(t_node **a, t_node **b)
 	cheapest_node = get_cheapest(*a);
 	if (!cheapest_node || !cheapest_node->target_node)
 		return ;
-
-	while((*a)!=cheapest_node && (*b)!=cheapest_node->target_node )
+	while ((*a) != cheapest_node && (*b) != cheapest_node->target_node)
 	{
-		if (cheapest_node->above_median && cheapest_node->target_node->above_median)
+		if (cheapest_node->above_median
+			&& cheapest_node->target_node->above_median)
 		{
-				rotate(a, "rr");
-				rotate(b, NULL);
+			rotate(a, "rr");
+			rotate(b, NULL);
 		}
 		else if (!cheapest_node->above_median
 			&& !cheapest_node->target_node->above_median)
 		{
-				rev_rotate(a, "rrr");
-				rev_rotate(b, NULL);
+			rev_rotate(a, "rrr");
+			rev_rotate(b, NULL);
 		}
 	}
 	move_to_target(a, cheapest_node, 'a');
 	move_to_target(b, cheapest_node->target_node, 'b');
-	push(b, a,"pb");
+	push(b, a, "pb");
 }
 
 void	move_b_to_a(t_node **a, t_node **b)
 {
 	move_to_target(a, (*b)->target_node, 'a');
-	push(a,b,"pa");
+	push(a, b, "pa");
 }
 
 void	min_on_top(t_node **top)
@@ -88,8 +88,8 @@ t_node	*get_cheapest(t_node *top)
 {
 	t_node	*current;
 
-	if(!top)
-		return(NULL);
+	if (!top)
+		return (NULL);
 	current = top;
 	while (current)
 	{

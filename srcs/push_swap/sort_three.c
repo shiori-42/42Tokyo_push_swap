@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 19:32:08 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/05 15:17:46 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 15:48:03 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	sort_three(t_node **a)
 
 	max_node = find_max(*a);
 	if (max_node == *a)
-		rotate(a,"ra");
+		rotate(a, "ra");
 	else if ((*a)->next == max_node)
-		rev_rotate(a,"rra");
+		rev_rotate(a, "rra");
 	if ((*a)->nbr > (*a)->next->nbr)
-		swap(a,"sa");
+		swap(a, "sa");
 }

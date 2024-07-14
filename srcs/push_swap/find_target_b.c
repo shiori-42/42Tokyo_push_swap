@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_target_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:00:05 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/05 15:17:53 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 15:49:42 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	find_target_b(t_node *a, t_node *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr
-				&& current_a->nbr < best_match_index)
+			if (current_a->nbr > b->nbr && current_a->nbr < best_match_index)
 			{
 				best_match_index = current_a->nbr;
 				target_node = current_a;
@@ -39,6 +38,7 @@ void	find_target_b(t_node *a, t_node *b)
 		b = b->next;
 	}
 }
+
 void	init_nodes_b(t_node *a, t_node *b)
 {
 	set_index(a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:46 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/05 20:45:04 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 15:40:59 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	stack_len(t_node *top)
 	int		len;
 	t_node	*current;
 
-	if(!top)
-		return(0);
+	if (!top)
+		return (0);
 	len = 0;
 	current = top;
 	while (current)
@@ -87,6 +87,7 @@ void	set_index(t_node *top)
 		i++;
 	}
 }
+
 void	find_cheapest(t_node *top)
 {
 	long	cheapest_cost;
@@ -109,4 +110,3 @@ void	find_cheapest(t_node *top)
 	if (cheapest_node)
 		cheapest_node->cheapest = 1;
 }
-
