@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 15:47:18 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/14 15:47:43 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 20:24:08 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 			sort_three(&(a));
 		else
 			sort_stacks(&(a), &(b));
-		free_stack(&(a));
-		return (0);
 	}
+	free_stack(&(a));
+	return (0);
 }

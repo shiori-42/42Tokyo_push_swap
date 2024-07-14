@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:53:49 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/14 16:06:22 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 23:42:27 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	execute_cmd(t_node **a, t_node **b, char *cmd)
 		rotate(a, NULL);
 	else if (ft_strncmp(cmd, "rb\n", ft_strlen(cmd)) == 0)
 		rotate(b, NULL);
-	execute_cmd_2(a, b, cmd);
+	else
+		execute_cmd_2(a, b, cmd);
 }
 
 void	execute_cmd_2(t_node **a, t_node **b, char *cmd)
@@ -53,6 +54,7 @@ void	execute_cmd_2(t_node **a, t_node **b, char *cmd)
 	else
 	{
 		write(2, "Error\n", 6);
+		printf("%s\n", cmd);
 		free(cmd);
 		free_stack(a);
 		free_stack(b);

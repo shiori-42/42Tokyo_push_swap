@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 15:46:52 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/14 15:46:56 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 21:49:31 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,11 @@ void	move_a_to_b(t_node **a, t_node **b)
 	t_node	*cheapest_node;
 
 	cheapest_node = get_cheapest(*a);
-	if (!cheapest_node || !cheapest_node->target_node)
-		return ;
-	while ((*a) != cheapest_node && (*b) != cheapest_node->target_node)
-	{
-		if (cheapest_node->above_median
-			&& cheapest_node->target_node->above_median)
-		{
-			rotate(a, "rr");
-			rotate(b, NULL);
-		}
-		else if (!cheapest_node->above_median
-			&& !cheapest_node->target_node->above_median)
-		{
-			rev_rotate(a, "rrr");
-			rev_rotate(b, NULL);
-		}
-	}
+	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
+		rotate_both(a, b, cheapest_node);
+	else if (!(cheapest_node->above_median)
+		&& !(cheapest_node->target_node->above_median))
+		rev_rotate_both(a, b, cheapest_node);
 	move_to_target(a, cheapest_node, 'a');
 	move_to_target(b, cheapest_node->target_node, 'b');
 	push(b, a, "pb");

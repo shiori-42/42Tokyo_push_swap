@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:03:33 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/14 15:50:53 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 23:43:00 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	load_stack(t_node **a, char **argv)
 		if (check_comandline_args(argv[i]))
 			free_errors(a);
 		n = ft_atoi(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a);
 		if (is_duplicate((*a), n))
 			free_errors(a);
 		append_node(a, n);

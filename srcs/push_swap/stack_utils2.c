@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 19:42:30 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/14 16:01:59 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 22:29:15 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	print_operation(char *op)
 int	call_load_stack(t_node **a, int argc, char **argv)
 {
 	char	**splited_argv;
+	int		i;
 
 	splited_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
@@ -53,6 +54,10 @@ int	call_load_stack(t_node **a, int argc, char **argv)
 	{
 		splited_argv = ft_split(argv[1], ' ');
 		load_stack(a, splited_argv);
+		i = 0;
+		while (splited_argv[i])
+			free(splited_argv[i++]);
+		free(splited_argv);
 	}
 	else
 		load_stack(a, argv + 1);

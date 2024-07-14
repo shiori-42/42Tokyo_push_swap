@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 16:41:26 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/14 15:51:33 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 21:44:27 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,22 @@ void	rev_rotate(t_node **top, char *op)
 	current->next = *top;
 	*top = current;
 	print_operation(op);
+}
+
+void	rotate_both(t_node **a, t_node **b, t_node *cheapest_node)
+{
+	while ((*a) != cheapest_node && (*b) != cheapest_node->target_node)
+	{
+		rotate(a, "rr");
+		rotate(b, NULL);
+	}
+}
+
+void	rev_rotate_both(t_node **a, t_node **b, t_node *cheapest_node)
+{
+	while ((*a) != cheapest_node && (*b) != cheapest_node->target_node)
+	{
+		rev_rotate(a, "rrr");
+		rev_rotate(b, NULL);
+	}
 }

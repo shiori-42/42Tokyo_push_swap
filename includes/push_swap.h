@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/14 15:41:35 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 20:41:22 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ int					pop(t_node **top);
 void				swap(t_node **top, char *op);
 void				rotate(t_node **top, char *op);
 void				rev_rotate(t_node **top, char *op);
+void				rotate_both(t_node **a, t_node **b, t_node *cheapest_node);
+void				rev_rotate_both(t_node **a, t_node **b,
+						t_node *cheapest_node);
 void				move_to_target(t_node **top, t_node *node, char stack_name);
 void				move_a_to_b(t_node **a, t_node **b);
 void				move_b_to_a(t_node **a, t_node **b);

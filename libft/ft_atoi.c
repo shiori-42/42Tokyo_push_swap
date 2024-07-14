@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 15:54:21 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/14 15:54:24 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/14 20:22:35 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static long	check_overflow_nbr(char *s, int sign)
 	return (ans * sign);
 }
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
 	int		sign;
 	long	ans;

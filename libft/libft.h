@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 20:00:19 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/05 14:47:04 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/14 20:22:25 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int					ft_strncmp(char *s1, char *s2, size_t n);
 void				*ft_memchr(void *s, int c, size_t n);
 int					ft_memcmp(void *s1, void *s2, size_t n);
 char				*ft_strnstr(char *haystack, char *needle, size_t len);
-int					ft_atoi(char *str);
+long				ft_atoi(char *str);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(char *s1);
 char				*ft_substr(char *s, int start, size_t len);
