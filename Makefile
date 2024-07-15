@@ -2,7 +2,7 @@ NAME = push_swap
 BONUS_NAME = checker
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./includes -I./libft
 
 LIBFT = libft/libft.a

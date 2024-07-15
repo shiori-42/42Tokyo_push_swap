@@ -6,11 +6,11 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:53:49 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/14 23:42:27 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:26:08 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	execute_cmd(t_node **a, t_node **b, char *cmd)
 {
@@ -54,7 +54,6 @@ void	execute_cmd_2(t_node **a, t_node **b, char *cmd)
 	else
 	{
 		write(2, "Error\n", 6);
-		printf("%s\n", cmd);
 		free(cmd);
 		free_stack(a);
 		free_stack(b);
