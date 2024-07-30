@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:03:33 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/14 23:43:00 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:45:31 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,6 @@ void	append_node(t_node **top, int n)
 	}
 }
 
-void	move_to_target(t_node **top, t_node *target_node, char stack_name)
-{
-	while (*top != target_node)
-	{
-		if (stack_name == 'a')
-		{
-			if (target_node->above_median)
-				rotate(top, "ra");
-			else
-				rev_rotate(top, "rra");
-		}
-		else if (stack_name == 'b')
-		{
-			if (target_node->above_median)
-				rotate(top, "rb");
-			else
-				rev_rotate(top, "rrb");
-		}
-	}
-}
-
 void	load_stack(t_node **a, char **argv)
 {
 	long	n;
@@ -76,20 +55,4 @@ void	load_stack(t_node **a, char **argv)
 		append_node(a, n);
 		i++;
 	}
-}
-
-int	is_sorted(t_node *top)
-{
-	t_node	*current;
-
-	if (!top)
-		return (1);
-	current = top;
-	while (current->next)
-	{
-		if (current->nbr > current->next->nbr)
-			return (0);
-		current = current->next;
-	}
-	return (1);
 }

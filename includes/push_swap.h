@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/14 20:41:22 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:25:58 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,19 @@ typedef struct s_node
 {
 	int				nbr;
 	int				index;
-	int				above_median;
-	int				push_cost;
 	struct s_node	*next;
 	struct s_node	*target_node;
 	int				cheapest;
+	int				push_cost;
+	int best_direction;
 }					t_node;
+
+enum e_direction {
+    UP_UP,
+    DOWN_DOWN,
+    UP_DOWN,
+    DOWN_UP
+};
 
 void				free_stack(t_node **top);
 void				free_errors(t_node **a);
@@ -49,19 +56,25 @@ void				rev_rotate_both(t_node **a, t_node **b,
 void				move_to_target(t_node **top, t_node *node, char stack_name);
 void				move_a_to_b(t_node **a, t_node **b);
 void				move_b_to_a(t_node **a, t_node **b);
-void				set_index(t_node *top);
+void				set_index_stack(t_node *top);
+void    set_index_both_stack(t_node *a,t_node *b);
 void				min_on_top(t_node **top);
-t_node				*get_cheapest(t_node *top);
-t_node				*find_min(t_node *top);
-t_node				*find_max(t_node *top);
-void				init_nodes_a(t_node *a, t_node *b);
-void				init_nodes_b(t_node *a, t_node *b);
+t_node				*find_min_node(t_node *top);
+t_node				*find_max_node(t_node *top);
+t_node				*find_cheapest_node(t_node *top);
 void				print_operation(char *op);
 void				find_target_a(t_node *a, t_node *b);
 void				find_target_b(t_node *a, t_node *b);
-void				calc_cost_for_push_a(t_node *a, t_node *b);
-void				find_cheapest(t_node *top);
+void				mark_cheapest_node(t_node *top);
 int					is_duplicate(t_node *top, int nbr);
-void				execute_cmd_2(t_node **a, t_node **b, char *cmd);
+int	ft_min(int a, int b);
+int	ft_max(int a, int b);
+void calc_all_push_costs(t_node *a,t_node *b);
+int calc_cost_up_up(t_node *a);
+int calc_cost_down_down(t_node *a, int len_a, int len_b);
+int calc_cost_up_down(t_node *a, int len_b);
+int calc_cost_down_up(t_node *a, int len_a);
+
+
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_target_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:00:05 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/14 15:49:42 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:58:15 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,9 @@ void	find_target_b(t_node *a, t_node *b)
 			current_a = current_a->next;
 		}
 		if (best_match_index == LONG_MAX)
-			b->target_node = find_min(a);
+			b->target_node = find_min_node(a);
 		else
 			b->target_node = target_node;
 		b = b->next;
 	}
-}
-
-void	init_nodes_b(t_node *a, t_node *b)
-{
-	set_index(a);
-	set_index(b);
-	find_target_b(a, b);
 }

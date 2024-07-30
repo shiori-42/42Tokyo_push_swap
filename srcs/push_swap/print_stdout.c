@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   print_stdout.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 19:32:08 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/30 14:23:10 by shiori           ###   ########.fr       */
+/*   Created: 2024/07/30 14:47:57 by shiori            #+#    #+#             */
+/*   Updated: 2024/07/30 14:48:08 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "push_swap.h"
+
 #include "push_swap.h"
 
-void	sort_three(t_node **a)
+void	print_operation(char *op)
 {
-	t_node	*max_node;
-
-	max_node = find_max_node(*a);
-	if (max_node == *a)
-		rotate(a, "ra");
-	else if ((*a)->next == max_node)
-		rev_rotate(a, "rra");
-	if ((*a)->nbr > (*a)->next->nbr)
-		swap(a, "sa");
+	if (!op)
+		return ;
+	write(1, op, ft_strlen(op));
+	write(1, "\n", 1);
 }
+
+

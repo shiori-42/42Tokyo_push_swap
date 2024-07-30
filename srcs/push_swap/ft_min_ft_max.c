@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   ft_min_ft_max.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 19:32:08 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/30 14:23:10 by shiori           ###   ########.fr       */
+/*   Created: 2024/07/30 14:21:40 by shiori            #+#    #+#             */
+/*   Updated: 2024/07/30 14:21:50 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_node **a)
+int	ft_min(int a, int b)
 {
-	t_node	*max_node;
+	if (a < b)
+		return (a);
+	return (b);
+}
 
-	max_node = find_max_node(*a);
-	if (max_node == *a)
-		rotate(a, "ra");
-	else if ((*a)->next == max_node)
-		rev_rotate(a, "rra");
-	if ((*a)->nbr > (*a)->next->nbr)
-		swap(a, "sa");
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:46 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/14 15:40:59 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:27:16 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,66 +29,30 @@ int	stack_len(t_node *top)
 	return (len);
 }
 
-t_node	*find_max(t_node *top)
+void    set_index_stack(t_node *top)
 {
-	t_node	*current;
-	t_node	*max_node;
+    int     i;
+    t_node  *current;
 
-	if (!top)
-		return (NULL);
-	max_node = top;
-	current = top->next;
-	while (current)
-	{
-		if (current->nbr > max_node->nbr)
-			max_node = current;
-		current = current->next;
-	}
-	return (max_node);
+    if (!top)
+        return ;
+    current = top;
+    i = 0;
+    while (current)
+    {
+        current->index = i;
+        current = current->next;
+        i++;
+    }
 }
 
-t_node	*find_min(t_node *top)
+void    set_index_both_stack(t_node *a,t_node *b)
 {
-	t_node	*current;
-	t_node	*min_node;
-
-	if (!top)
-		return (NULL);
-	min_node = top;
-	current = top->next;
-	while (current)
-	{
-		if (current->nbr < min_node->nbr)
-			min_node = current;
-		current = current->next;
-	}
-	return (min_node);
+	set_index_stack(a);
+	set_index_stack(b);
 }
 
-void	set_index(t_node *top)
-{
-	int		i;
-	int		median;
-	t_node	*current;
-
-	if (!top)
-		return ;
-	i = 0;
-	current = top;
-	median = stack_len(top) / 2;
-	while (current)
-	{
-		current->index = i;
-		if (i <= median)
-			current->above_median = 1;
-		else
-			current->above_median = 0;
-		current = current->next;
-		i++;
-	}
-}
-
-void	find_cheapest(t_node *top)
+void	mark_cheapest_node(t_node *top)
 {
 	long	cheapest_cost;
 	t_node	*cheapest_node;
