@@ -1,16 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 15:47:18 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/30 15:25:58 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/30 16:20:11 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	append_node(t_node **top, int n)
+{
+	t_node	*new_node;
+
+	if (!top)
+		return ;
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		return ;
+	new_node->nbr = n;
+	new_node->next = *top;
+	*top = new_node;
+}
+
+void	load_stack(t_node **a, char **argv)
+{
+	long	n;
+	int		i;
+
+	i = 0;
+	while(argv[i])
+		i++;
+	i--;
+	while (i>=0)
+	{
+		if (check_comandline_args(argv[i]))
+			free_errors(a);
+		n = ft_atoi(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a);
+		if (is_duplicate((*a), n))
+			free_errors(a);
+		append_node(a, n);
+		i--;
+	}
+}
 
 int	call_load_stack(t_node **a, int argc, char **argv)
 {

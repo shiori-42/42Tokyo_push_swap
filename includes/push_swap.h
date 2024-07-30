@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/30 15:25:58 by shiori           ###   ########.fr       */
+/*   Updated: 2024/07/30 16:05:14 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ enum e_direction {
 void				free_stack(t_node **top);
 void				free_errors(t_node **a);
 int					check_comandline_args(char *argv);
-int					call_load_stack(t_node **a, int argc, char **argv);
-void				load_stack(t_node **a, char **argv);
 int					is_sorted(t_node *top);
 int					stack_len(t_node *top);
 void				sort_three(t_node **top);

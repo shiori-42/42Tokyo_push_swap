@@ -1,6 +1,7 @@
 {
     "terminal.integrated.enableFileLinks": true,
     "files.associations": {
-        "all": "c"
+        "all": "c",
+        "push_swap.h": "c"
     }
 }
