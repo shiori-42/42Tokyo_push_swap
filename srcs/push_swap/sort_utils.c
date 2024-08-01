@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:46 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/30 15:27:16 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/01 23:12:34 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,12 @@ void	mark_cheapest_node(t_node *top)
 	cheapest_cost = LONG_MAX;
 	while (current)
 	{
-		if (current->push_cost < cheapest_cost)
+		if(current->push_cost==0)
+		{
+			cheapest_node = current;
+			break;
+		}
+		else if (current->push_cost < cheapest_cost)
 		{
 			cheapest_cost = current->push_cost;
 			cheapest_node = current;
@@ -72,5 +77,5 @@ void	mark_cheapest_node(t_node *top)
 		current = current->next;
 	}
 	if (cheapest_node)
-		cheapest_node->cheapest = 1;
+		cheapest_node->is_cheapest = 1;
 }

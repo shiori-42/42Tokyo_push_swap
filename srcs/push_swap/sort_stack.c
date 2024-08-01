@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 15:46:52 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/30 20:57:49 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/01 23:16:19 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,10 @@ void	sort_stacks(t_node **a, t_node **b)
 		find_target_b(*a, *b);
 		move_b_to_a(a, b);
 	}
-	min_on_top(a);
+	min_node_on_top(a);
 }
 
-void move_a_to_b(t_node **a, t_node **b)
-{
+void move_a_to_b(t_node **a, t_node **b){
     t_node *cheapest_node = find_cheapest_node(*a);
     if (!cheapest_node)
         return;
@@ -64,7 +63,7 @@ void	move_b_to_a(t_node **a, t_node **b)
 	push(a, b, "pa");
 }
 
-void min_on_top(t_node **top)
+void min_node_on_top(t_node **top)
 {
     t_node *min_node;
     int stack_size;

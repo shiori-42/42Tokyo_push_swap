@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:01:46 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/30 15:20:58 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/01 22:39:21 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_node	*find_cheapest_node(t_node *top)
 	current = top;
 	while (current)
 	{
-		if (current->cheapest == 1)
+		if (current->is_cheapest == 1)
 			return (current);
 		current = current->next;
 	}

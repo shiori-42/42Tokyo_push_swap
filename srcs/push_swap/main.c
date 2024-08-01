@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 15:47:18 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/30 16:20:11 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/01 23:25:51 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	call_load_stack(t_node **a, int argc, char **argv)
 	}
 	else
 		load_stack(a, argv + 1);
+	
 	return (0);
 }
 

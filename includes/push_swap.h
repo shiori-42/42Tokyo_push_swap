@@ -6,7 +6,7 @@
 /*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/30 16:05:14 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/01 23:08:08 by shiori           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_node
 	int				index;
 	struct s_node	*next;
 	struct s_node	*target_node;
-	int				cheapest;
+	int				is_cheapest;
 	int				push_cost;
 	int best_direction;
 }					t_node;
@@ -56,7 +56,7 @@ void				move_a_to_b(t_node **a, t_node **b);
 void				move_b_to_a(t_node **a, t_node **b);
 void				set_index_stack(t_node *top);
 void    set_index_both_stack(t_node *a,t_node *b);
-void				min_on_top(t_node **top);
+void				min_node_on_top(t_node **top);
 t_node				*find_min_node(t_node *top);
 t_node				*find_max_node(t_node *top);
 t_node				*find_cheapest_node(t_node *top);
