@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:46 by syonekur          #+#    #+#             */
-/*   Updated: 2024/08/01 23:12:34 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/02 21:39:47 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,24 @@ int	stack_len(t_node *top)
 	return (len);
 }
 
-void    set_index_stack(t_node *top)
+void	set_index_stack(t_node *top)
 {
-    int     i;
-    t_node  *current;
+	int		i;
+	t_node	*current;
 
-    if (!top)
-        return ;
-    current = top;
-    i = 0;
-    while (current)
-    {
-        current->index = i;
-        current = current->next;
-        i++;
-    }
+	if (!top)
+		return ;
+	current = top;
+	i = 0;
+	while (current)
+	{
+		current->index = i;
+		current = current->next;
+		i++;
+	}
 }
 
-void    set_index_both_stack(t_node *a,t_node *b)
+void	set_index_both_stack(t_node *a, t_node *b)
 {
 	set_index_stack(a);
 	set_index_stack(b);
@@ -64,10 +64,10 @@ void	mark_cheapest_node(t_node *top)
 	cheapest_cost = LONG_MAX;
 	while (current)
 	{
-		if(current->push_cost==0)
+		if (current->push_cost == 0)
 		{
 			cheapest_node = current;
-			break;
+			break ;
 		}
 		else if (current->push_cost < cheapest_cost)
 		{

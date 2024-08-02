@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_target_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:41:26 by syonekur          #+#    #+#             */
-/*   Updated: 2024/08/01 23:13:01 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/02 22:15:52 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,23 @@ void	find_target_a(t_node *a, t_node *b)
 {
 	t_node	*current_b;
 	t_node	*target_node;
-	long	best_match_index;
+	long	closest_smaller_value;
 
 	while (a)
 	{
-		best_match_index = LONG_MIN;
+		closest_smaller_value = LONG_MIN;
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
+			if (current_b->nbr < a->nbr
+				&& current_b->nbr > closest_smaller_value)
 			{
-				best_match_index = current_b->nbr;
+				closest_smaller_value = current_b->nbr;
 				target_node = current_b;
 			}
 			current_b = current_b->next;
 		}
-		if (best_match_index == LONG_MIN)
+		if (closest_smaller_value == LONG_MIN)
 			a->target_node = find_max_node(b);
 		else
 			a->target_node = target_node;

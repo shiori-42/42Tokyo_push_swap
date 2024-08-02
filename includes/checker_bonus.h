@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 14:23:34 by syonekur          #+#    #+#             */
-/*   Updated: 2024/07/15 15:31:51 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/08/02 21:34:54 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	run_push_swap(t_node **a, t_node **b, int argc, char **argv);
+int		run_push_swap(t_node **a, t_node **b, int argc, char **argv);
+void	execute_cmd_2(t_node **a, t_node **b, char *cmd);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 23:12:40 by syonekur          #+#    #+#             */
-/*   Updated: 2024/08/01 23:08:08 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/02 21:38:40 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ typedef struct s_node
 	struct s_node	*target_node;
 	int				is_cheapest;
 	int				push_cost;
-	int best_direction;
+	int				best_direction;
 }					t_node;
 
-enum e_direction {
-    UP_UP,
-    DOWN_DOWN,
-    UP_DOWN,
-    DOWN_UP
+enum				e_direction
+{
+	UP_UP,
+	DOWN_DOWN,
+	UP_DOWN,
+	DOWN_UP
 };
 
 void				free_stack(t_node **top);
@@ -55,7 +56,7 @@ void				move_to_target(t_node **top, t_node *node, char stack_name);
 void				move_a_to_b(t_node **a, t_node **b);
 void				move_b_to_a(t_node **a, t_node **b);
 void				set_index_stack(t_node *top);
-void    set_index_both_stack(t_node *a,t_node *b);
+void				set_index_both_stack(t_node *a, t_node *b);
 void				min_node_on_top(t_node **top);
 t_node				*find_min_node(t_node *top);
 t_node				*find_max_node(t_node *top);
@@ -65,14 +66,13 @@ void				find_target_a(t_node *a, t_node *b);
 void				find_target_b(t_node *a, t_node *b);
 void				mark_cheapest_node(t_node *top);
 int					is_duplicate(t_node *top, int nbr);
-int	ft_min(int a, int b);
-int	ft_max(int a, int b);
-void calc_all_push_costs(t_node *a,t_node *b);
-int calc_cost_up_up(t_node *a);
-int calc_cost_down_down(t_node *a, int len_a, int len_b);
-int calc_cost_up_down(t_node *a, int len_b);
-int calc_cost_down_up(t_node *a, int len_a);
-
-
+int					ft_min(int a, int b);
+int					ft_max(int a, int b);
+void				calc_all_push_costs(t_node *a, t_node *b);
+int					calc_cost_up_up(t_node *a);
+int					calc_cost_down_down(t_node *a, int len_a, int len_b);
+int					calc_cost_up_down(t_node *a, int len_b);
+int					calc_cost_down_up(t_node *a, int len_a);
+int					call_load_stack(t_node **a, int argc, char **argv);
 
 #endif

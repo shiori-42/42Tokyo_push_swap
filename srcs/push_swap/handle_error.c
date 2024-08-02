@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shiori <shiori@student.42.fr>              +#+  +:+       +#+        */
+/*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 20:57:36 by shiori            #+#    #+#             */
-/*   Updated: 2024/07/30 14:18:12 by shiori           ###   ########.fr       */
+/*   Updated: 2024/08/02 22:17:43 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,3 @@ int	is_duplicate(t_node *top, int nbr)
 	}
 	return (0);
 }
-
-
