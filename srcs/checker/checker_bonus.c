@@ -6,7 +6,7 @@
 /*   By: syonekur <syonekur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 15:53:49 by shiori            #+#    #+#             */
-/*   Updated: 2024/08/02 22:53:37 by syonekur         ###   ########.fr       */
+/*   Updated: 2024/08/03 14:50:47 by syonekur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(a) && !b)
 		write(1, "OK\n", 3);
 	else
-		write(2, "KO\n", 3);
+		write(1, "KO\n", 3);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
